@@ -1,0 +1,15 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: python /webapp/simple_vote.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./webapp:/webapp
+    links:
+      - db
+    extra_hosts:
+      - "debug_host:${DOCKER0_IP}" # This is for debugger
+  db:
+    image: mongo:3.2.9

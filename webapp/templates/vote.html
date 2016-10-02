@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{name}}</title>
+</head>
+<body>
+    <h1>{{name}}</h1>
+    <a href="/">Home</a>
+    <form method="post">
+        <input type="hidden" name="id" value="{{id}}">
+        <table>
+            <tr>
+                <th>Check</th><th>Point</th><th>Name</th>
+            </tr>
+            {% for item in items %}
+            <tr>
+                <td><input type="radio" name="chosen" value="{{item.id}}"></td>
+                <td>{{item.point}}</td>
+                <td>{{item.name}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <label for="new_vote">New Item Name</label>
+        <input id="new_vote" name="name" type="text">
+        <input type="submit" name="action" value="ADD">
+        <input type="submit" name="action" value="VOTE">
+    </form>
+</body>
+</html>

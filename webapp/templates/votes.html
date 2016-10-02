@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Votes</title>
+</head>
+<body>
+    <h1>Votes</h1>
+    <form method="post">
+        <ul>
+            {% for vote in votes %}
+            <li><a href="/vote?id={{vote.id}}">{{vote.name}}</a></li>
+            {% endfor %}
+        </ul>
+        <label for="new_vote">Vote Name</label>
+        <input id="new_vote" name="name" type="text">
+        <input type="submit" name="action" value="ADD">
+    </form>
+</body>
+</html>
